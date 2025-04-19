@@ -1,0 +1,57 @@
+{
+  "quizzes": [
+    {
+      "id": "harrypotter",
+      "title": "Harry Potter",
+      "tagline": "Test your wizarding knowledge",
+      "href": "/quiz/harrypotter",
+      "status": "active",
+      "audioSupport": "half",
+      "lastUpdated": "2025-02-17"
+    },
+    {
+      "id": "lotr",
+      "title": "The Lord Of The Rings",
+      "tagline": "Explore the epic tales of Middle-earth",
+      "href": "/quiz/lotr",
+      "status": "active",
+      "audioSupport": "none",
+      "lastUpdated": "2025-02-17"
+    },
+    {
+      "id": "dune",
+      "title": "Dune",
+      "tagline": "Venture into the world of Arrakis",
+      "href": "/quiz/dune",
+      "status": "coming_soon"
+    },
+    {
+      "id": "discworld",
+      "title": "Discworld",
+      "tagline": "Navigate Terry Pratchett’s satirical fantasy universe",
+      "href": "/quiz/discworld",
+      "status": "coming_soon"
+    },
+    {
+      "id": "pokemon",
+      "title": "Pokémon",
+      "tagline": "Gotta catch 'em all! Test your Pokémon knowledge",
+      "href": "/quiz/pokemon",
+      "status": "coming_soon"
+    },
+    {
+      "id": "minecraft",
+      "title": "Minecraft",
+      "tagline": "Craft, mine, and survive in this blocky world",
+      "href": "/quiz/minecraft",
+      "status": "coming_soon"
+    },
+    {
+      "id": "warhammer40k",
+      "title": "Warhammer 40k",
+      "tagline": "Dive into the grim darkness of the far future",
+      "href": "/quiz/warhammer40k",
+      "status": "coming_soon"
+    }
+  ]
+}

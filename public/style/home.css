@@ -1,0 +1,318 @@
+/* ===== CSS Variables ===== */
+:root {
+  --primary: #ae0001;
+  --gold: #ffd700;
+  --parchment: #f8f4e6;
+  --background: #1a1429;
+  --text-dark: #3d2b1f;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Base Styles ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  background: var(--background);
+  color: var(--gold);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== Loading Overlay ===== */
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--gold);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== Main Content Styles ===== */
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 2rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--gold);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+/* ===== Quiz Grid Layout ===== */
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+.quiz-box {
+  background: var(--parchment);
+  border: 3px solid var(--text-dark);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quiz-box h2 {
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+  font-family: "MedievalSharp", cursive;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.quiz-box p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* ===== Hover & Active States ===== */
+.quiz-box:not(.coming-soon):hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.quiz-box:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ===== Coming Soon Styles ===== */
+.quiz-box.coming-soon {
+  position: relative;
+  filter: grayscale(1);
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.05) 10px,
+    rgba(0, 0, 0, 0.05) 20px
+  );
+}
+
+.quiz-box.coming-soon::after {
+  content: "Coming Soon";
+  position: absolute;
+  top: 65%;
+  left: 80%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  background: var(--gold);
+  color: var(--text-dark);
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-family: "MedievalSharp", cursive;
+  font-size: 1.1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+
+/* ===== Background Effects ===== */
+#background-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    45deg,
+    rgba(174, 0, 1, 0.1) 0%,
+    rgba(0, 86, 63, 0.1) 25%,
+    rgba(238, 186, 48, 0.1) 50%,
+    rgba(148, 93, 34, 0.1) 75%
+  );
+  background-size: 400% 400%;
+  animation: backgroundScroll 30s infinite linear;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== Animations ===== */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes backgroundScroll {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 768px) {
+  .quiz-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .quiz-box {
+    padding: 20px;
+    min-height: 140px;
+  }
+
+  .quiz-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .quiz-box p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== Footer Styles ===== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.footer p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.gnu-license-footer {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.9rem;
+  color: #b4b4b4;
+  padding: 1rem 0;
+}
+
+.gnu-license-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.gnu-license-footer a:hover {
+  opacity: 0.8;
+}
+
+.gnu-logo {
+  max-width: 50px;
+  height: auto;
+  vertical-align: middle;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: filter 0.3s ease;
+}
+
+.gnu-license-footer a:hover .gnu-logo {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.footer .socials {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer .socials a {
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer .socials a:hover {
+  color: rgba(255, 217, 0, 0.521);
+}
+
+.footer .socials a i {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .footer .socials a {
+    font-size: 20px;
+  }
+}
+
+.quiz-box .audio-support-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--gold);
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quiz-box:hover .audio-support-overlay {
+  opacity: 1;
+}

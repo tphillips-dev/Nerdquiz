@@ -1,0 +1,218 @@
+:root {
+    --primary: #ae0001;
+    --gold: #d4af37;
+    --parchment: #f9f6f0;
+    --background: #1a1a1a;
+    --text-dark: #3d352b;
+    --border: rgba(174, 0, 1, 0.2);
+}
+
+body {
+    background: var(--background);
+    font-family: "Playfair Display", serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+#setup-screen, 
+#quiz-screen {
+    background: var(--parchment);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.setting {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 3px solid var(--gold);
+}
+
+.controls {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    margin-top: 2rem;
+}
+
+h1 {
+    font-family: 'MedievalSharp', cursive;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+select, button {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    background: white;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+button {
+    background: var(--gold);
+    color: var(--text-dark);
+    border-color: var(--gold);
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(174, 0, 1, 0.1);
+}
+
+.progress {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: 1rem 0;
+}
+
+#timer-bar-container {
+    height: 6px;
+    background: rgba(174, 0, 1, 0.1);
+    border-radius: 3px;
+    margin: 1rem 0;
+}
+
+#timer-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--primary));
+    transition: width 1s linear;
+}
+
+.parchment-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+#source-link {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    color: var(--text-dark);
+    opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    button, select {
+        padding: 0.7rem;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.floating-home-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background: var(--gold);
+    color: var(--text-dark);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+}
+
+#restart-btn {
+    top: 80px;
+}
+
+.floating-home-btn:hover {
+    background: var(--primary);
+    color: var(--parchment);
+    transform: scale(1.05);
+    border-color: var(--gold);
+    box-shadow: 0 4px 12px rgba(174, 0, 1, 0.3);
+}
+
+.floating-home-btn:hover i {
+    transform: rotate(-20deg) scale(1.1);
+}
+
+.floating-home-btn::after {
+    content: "Return to the Great Hall";
+    position: absolute;
+    left: -10px;
+    transform: translateX(-100%) translateY(-50%);
+    top: 50%;
+    background: var(--primary);
+    color: var(--parchment);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--gold);
+    font-family: 'MedievalSharp', cursive;
+}
+
+#restart-btn::after {
+    content: "Restart Quiz";
+}
+
+@media (max-width: 600px) {
+    .floating-home-btn::after {
+        left: 50%;
+        transform: translateX(-50%) translateY(0);
+        top: calc(100% + 10px);
+        background: var(--parchment);
+        color: var(--text-dark);
+        content: "Return to Great Hall";
+    }
+
+    #restart-btn::after {
+        content: "Restart Quiz";
+    }
+}

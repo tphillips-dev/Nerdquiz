@@ -1,0 +1,45 @@
+{
+  "quizzes": {
+    "harrypotter": {
+        "title": "🧙 𝓗𝓪𝓻𝓻𝔂 𝓟𝓸𝓽𝓽𝓮𝓻 𝓠𝓾𝓲𝔃 ✨"
+      },
+      "lotr": {
+        "title": "🧝 𝓣𝓱𝓮 𝓛𝓸𝓻𝓭 𝓸𝓯 𝓣𝓱𝓮 𝓡𝓲𝓷𝓰𝓼 𝓠𝓾𝓲𝔃 🧙"
+      },
+      "dune": {
+        "title": "🐪 𝓓𝓾𝓷𝓮 𝓠𝓾𝓲𝔃 🌵"
+      },
+      "discworld": {
+        "title": "🎩 𝓓𝓲𝓼𝓬𝔀𝓸𝓻𝓵𝓭 𝓠𝓾𝓲𝔃 🐘"
+      },
+      "pokemon": {
+        "title": "⚡ 𝓟𝓸𝓴é𝓶ó𝓷 𝓠𝓾𝓲𝔃 🎇"
+      },
+      "minecraft": {
+        "title": "⛏️ 𝓜𝓲𝓷𝓮𝓬𝓻𝓪𝓯𝓽 𝓠𝓾𝓲𝔃 🧱"
+      },
+      "warhammer40k": {
+        "title": "💀 𝓦𝓪𝓻𝓱𝓪𝓶𝓶𝓮𝓻 40k 𝓠𝓾𝓲𝔃 🚀"
+      }
+  },
+  "buttonLabels": {
+    "startQuiz": "Start Quiz",
+    "revealAnswer": "✨ Reveal Answer",
+    "nextQuestion": "⏭ Next Question",
+    "pauseQuiz": "⏸ Pause"
+  },
+  "textDefaults": {
+    "titleText": "NerdQuiz.Fun",
+    "loadingText": "Preparing magical quiz...",
+    "returnHome": "🏠",
+    "restartQuiz": "🔄",
+    "numberOfQuestions": "Number of Questions",
+    "autoplayQuestions": "Auto-play Questions",
+    "infiniteQuestions": "Infinite",
+    "infiniteSymbol": "∞"
+  },
+  "errorMessages": {
+    "loadQuestions": "Failed to load questions",
+    "loadLocalization": "Failed to load translations"
+  }
+}
